@@ -49,16 +49,33 @@
             <scroll-view :scroll-y="true" :class="'scroll-box ' + (data_list.length > 0 ? 'cart ' : '')" @scrolltolower="scroll_lower" lower-threshold="60" :style="scroll_style">
                 <view class="content">
                     <!-- 数据列表 -->
+<<<<<<< HEAD
                     <view v-if="data_list.length > 0" class="padding-horizontal-main padding-top-main padding-bottom-xsss">
+=======
+                    <view v-if="data_list.length > 0" class="padding-horizontal-main padding-bottom-xsss">
+                        <view class="cart-header-container pr margin-top-main">
+                            <view class="cart-title tc">
+                                <view class="guess-like fw-b text-size-md">购物车</view>
+                            </view>
+                            <view class="cart-manage-btn pa top-0 right-0 cr-main" @tap="manage_toggle_event">{{ is_manage_mode ? '完成' : '管理' }}</view>
+                        </view>
+>>>>>>> origin/master
                         <uni-swipe-action ref="swipe_action">
                             <view v-for="(item, index) in data_list" :key="index" class="oh border-radius-main bg-white spacing-mb">
                                 <uni-swipe-action-item :right-options="swipe_options" @click="swipe_opt_event" @change="swipe_change($event, index)">
                                     <view class="cart-goods-item flex-row align-c bs-bb padding-main pr wh-auto" :class="(common_site_type == 4 ? 'cart-exhibition-mode-data' : '')">
                                         <!-- 选择 -->
+<<<<<<< HEAD
                                         <view v-if="common_site_type != 4" @tap="selected_event" data-type="node" :data-index="index" class="cart-selected pr z-i">
                                             <iconfont :name="'icon-' + (item.selected || false ? 'selected-solid' : 'not-selected')" size="40rpx" :color="item.selected || false ? theme_color : '#999'"></iconfont>
                                         </view>
                                         <view class="items oh padding-left-main flex-1 flex-row">
+=======
+                                        <view v-if="common_site_type != 4 && is_manage_mode" @tap="selected_event" data-type="node" :data-index="index" class="cart-selected pr z-i">
+                                            <iconfont :name="'icon-' + (item.selected || false ? 'selected-solid' : 'not-selected')" size="40rpx" :color="item.selected || false ? theme_color : '#999'"></iconfont>
+                                        </view>
+                                        <view :class="'items oh flex-1 flex-row ' + (is_manage_mode ? 'padding-left-main' : '')">
+>>>>>>> origin/master
                                             <view :data-index="index" :data-value="item.goods_url" @tap="goods_event" class="cp">
                                                 <!-- 图片 -->
                                                 <image :class="'cart-goods-image fl radius '+goods_cover_class+' ' + ((item.is_error || 0) == 1 ? 'opacity' : '')" :src="item.images" mode="aspectFill"></image>
@@ -136,7 +153,11 @@
                     </view>
 
                     <!-- 操作导航 -->
+<<<<<<< HEAD
                     <block v-if="data_list.length > 0">
+=======
+                    <block v-if="data_list.length > 0 && is_manage_mode">
+>>>>>>> origin/master
                         <view class="bottom-fixed z-i" :class="(discount_detail_status ? ' discount-detail-popup-z-index' : '')" :style="bottom_fixed_style">
                             <view>
                                 <!-- 展示 -->
@@ -207,7 +228,11 @@
                                             <view v-if="(item.is_error || 0) != 1" class="item">
                                                 <view class="padding-sm pr">
                                                     <!-- 选择 -->
+<<<<<<< HEAD
                                                     <view v-if="common_site_type != 4" @tap="selected_event" data-type="node" :data-index="index" class="cart-selected pa top-xxxl right-xxxl z-i">
+=======
+                                                    <view v-if="common_site_type != 4 && is_manage_mode" @tap="selected_event" data-type="node" :data-index="index" class="cart-selected pa top-xxxl right-xxxl z-i">
+>>>>>>> origin/master
                                                         <iconfont :name="'icon-' + (item.selected || false ? 'selected-solid' : 'not-selected')" size="40rpx" :color="item.selected || false ? theme_color : '#999'"></iconfont>
                                                     </view>
                                                     <view>
@@ -431,6 +456,11 @@
                 scroll_style: '',
                 // 底部购买导航样式
                 bottom_fixed_style: '',
+<<<<<<< HEAD
+=======
+                // 管理模式状态
+                is_manage_mode: false,
+>>>>>>> origin/master
                 // 互联网医院问诊数据
                 plugins_hospital_prescription_data: null,
                 plugins_hospital_prescription_status: false
@@ -1174,6 +1204,15 @@
             exhibition_submit_event(e) {
                 app.globalData.call_tel(this.common_app_customer_service_tel);
             },
+<<<<<<< HEAD
+=======
+            // 管理模式切换
+            manage_toggle_event(e) {
+                this.setData({
+                    is_manage_mode: !this.is_manage_mode
+                });
+            },
+>>>>>>> origin/master
             // 滚动加载
             scroll_lower(e) {
                 this.get_data_list();
@@ -1598,6 +1637,23 @@
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * 购物车标题和管理按钮
+     */
+    .cart-header-container {
+        height: 60rpx;
+        line-height: 60rpx;
+        margin-bottom: 30rpx;
+    }
+    .cart-manage-btn {
+        right: 20rpx;
+        border: none;
+        background: transparent;
+    }
+
+    /**
+>>>>>>> origin/master
      * 顶部导航
      */
     .cart-right-title {

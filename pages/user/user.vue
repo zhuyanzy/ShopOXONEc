@@ -398,12 +398,15 @@
                                     url: '/pages/user-order/user-order?status=3',
                                 },
                                 {
+<<<<<<< HEAD
                                     name: '待评价',
                                     status: 4,
                                     count: 0,
                                     url: '/pages/user-order/user-order?status=4',
                                 },
                                 {
+=======
+>>>>>>> origin/master
                                     name: this.$t('user.user.aa1ri3'),
                                     status: 101,
                                     count: 0,

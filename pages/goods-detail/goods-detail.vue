@@ -312,7 +312,17 @@
                     <view class="border-radius-main padding-main bg-white">
                         <!-- 商品数据 -->
                         <component-goods-comments :propData="goods.comments_data"></component-goods-comments>
+<<<<<<< HEAD
 
+=======
+                        <!-- 是否开启评论入口 -->
+                        <view v-if="(plugins_intellectstools_data || null) !== null && (plugins_intellectstools_data.is_comments_add || 0) == 1">
+                            <view :data-value="'/pages/plugins/intellectstools/goods-comments/goods-comments?goods_id=' + goods.id" @tap="url_event" class="cp">
+                                <view class="br-t-e padding-top-main cr-base flex-row jc-c align-c">{{$t('goods-detail.goods-detail.6k7808')}}<iconfont name="icon-arrow-right" color="#666" propClass="margin-left-sm pr top-xs"></iconfont>
+                                </view>
+                            </view>
+                        </view>
+>>>>>>> origin/master
                     </view>
                 </view>
                 <!-- 问答 -->
